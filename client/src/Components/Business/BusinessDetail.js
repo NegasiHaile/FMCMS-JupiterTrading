@@ -5,6 +5,8 @@ import { useParams } from "react-router-dom";
 import CIcon from "@coreui/icons-react";
 import Swal from "sweetalert2";
 
+// import pdffile from "../../uploaded/6f6ec654-957b-4ed4-83ed-e9f156a81a18-1634046303182.pdf";
+
 import BadRouting from "../Utils/routing/BadRouting";
 import {
   CButton,
@@ -193,7 +195,6 @@ function BusinessDetail() {
       SweetAlert("error", error.response.data.msg);
     }
   };
-
   return (
     <>
       {business ? (
@@ -353,12 +354,11 @@ function BusinessDetail() {
                   <div className="pdf-container">
                     <Worker workerUrl="https://unpkg.com/pdfjs-dist@2.9.359/build/pdf.worker.min.js">
                       <Viewer
-                        // fileUrl={`http://localhost:3000/uploads/6f6ec654-957b-4ed4-83ed-e9f156a81a18-1634046303182.pdf`}
-                        fileUrl={
-                          "https://fmcms-jupiter-trading.herokuapp.com" +
-                          business.TL_Image
-                        }
-                        // fileUrl={business.TL_Image}
+                        // fileUrl={
+                        //   window.location.origin +
+                        //   "/client/uploaded/6f6ec654-957b-4ed4-83ed-e9f156a81a18-1634046303182.pdf"
+                        // }
+                        fileUrl={business.TL_Image}
                         plugins={[defaultLayoutPluginInstance]}
                       />
                     </Worker>
